@@ -17,7 +17,7 @@ where:
 - $T_{\text{ambient}}(t)$: Ambient temperature outside the house (°C)
 - $P_{\text{heater}}(t)$: Power supplied to the heater (kW)
 - $k$: Cooling coefficient (hours $^{-1}$ )
-- $\alpha$: Heating coefficient (°C \cdot kWh $^{-1}$ )
+- $\alpha$: Heating coefficient (°C $\cdot$ kWh $^{-1}$ )
 
 The ambient temperature and electricity cost evolve as follows:
 
