@@ -10,7 +10,7 @@ The temperature dynamics inside a house can be modeled using a differential equa
 
 ## Mathematical Formulation
 
-$$ \frac{dT}{dt} = k \cdot (T_{\text{ambient}}(t) - T(t)) + \alpha \cdot P_{\text{heater}}(t) $$
+$$ Equation (1): \frac{dT}{dt} = k \cdot (T_{\text{ambient}}(t) - T(t)) + \alpha \cdot P_{\text{heater}}(t) $$
 
 where:
 - $T(t)$: Temperature inside the house (°C)
@@ -21,9 +21,9 @@ where:
 
 The ambient temperature and electricity cost evolve as follows:
 
-$$ T_{\text{ambient}}(t) = 15 - 10 \sin\left(\frac{\pi}{12} (t + 4)\right) $$
+$$ Equation (2): T_{\text{ambient}}(t) = 15 - 10 \sin\left(\frac{\pi}{12} (t + 4)\right) $$
 
-$$ c(t) = 40 + 25 \sin^2\left(\frac{\pi}{12} t\right) $$
+$$ Equation (3): c(t) = 40 + 25 \sin^2\left(\frac{\pi}{12} t\right) $$
 
 ### Why This Formulation?
 
@@ -61,10 +61,19 @@ where:
 - $x[t]$: Binary variable indicating if the heater is on (1) or off (0) at time $t$
 - $T[t]$: Temperature inside the house at time $t$, continuous variable with bounds $[T_{\text{min}}, T_{\text{max}}]$
 
-## Baseline Strategy Explanation
+## Baseline Strategy
 
 In addition to developing an optimized heating strategy, it is essential to establish a baseline for comparison. The baseline strategy serves as a reference point to evaluate the effectiveness and efficiency of the optimization model. Here’s why the baseline strategy is chosen:
 
+### Description of the Baseline Strategy
+
+- **Heating Control:**
+  - The baseline strategy aims to maintain the indoor temperature close to a predefined setpoint (e.g., 24°C) without considering fluctuations in electricity costs.
+  - The heater operates at maximum capacity (12 kW) when the indoor temperature drops below the setpoint, and turns off when the setpoint is reached or exceeded.
+
+- **Electricity Cost Ignorance:**
+  - Unlike the optimized strategy, the baseline does not adjust power usage based on the varying electricity costs. It uses a fixed rule-based approach that ignores the dynamic pricing, leading to potentially higher operational costs.
+    
 ### Purpose of the Baseline Strategy
 
 1. **Benchmarking Performance:**
@@ -75,15 +84,6 @@ In addition to developing an optimized heating strategy, it is essential to esta
 
 3. **Identifying Improvement Areas:**
    - By analyzing the baseline strategy, we can identify specific areas where optimization can yield significant benefits. For instance, recognizing periods of high power usage during expensive electricity times highlights the potential for cost savings through better scheduling.
-
-### Description of the Baseline Strategy
-
-- **Heating Control:**
-  - The baseline strategy aims to maintain the indoor temperature close to a predefined setpoint (e.g., 24°C) without considering fluctuations in electricity costs.
-  - The heater operates at maximum capacity (12 kW) when the indoor temperature drops below the setpoint, and turns off when the setpoint is reached or exceeded.
-
-- **Electricity Cost Ignorance:**
-  - Unlike the optimized strategy, the baseline does not adjust power usage based on the varying electricity costs. It uses a fixed rule-based approach that ignores the dynamic pricing, leading to potentially higher operational costs.
 
 ## Implementation
 
@@ -102,6 +102,7 @@ The project is implemented using Python and the `mip` optimization library. The 
 ## Results
 
 The optimized heating strategy minimizes the total energy cost while maintaining the indoor temperature within the specified range. The notebook includes plots comparing the optimized strategy to a baseline approach, highlighting the cost savings.
+    - The insights gained from the optimization model can be scaled and applied to larger systems, such as commercial buildings or smart grids. By leveraging similar optimization techniques, broader applications can achieve significant energy and cost savings.
 
 ## Future Work
 
