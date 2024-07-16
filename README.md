@@ -102,8 +102,7 @@ The project is implemented using Python and the `mip` optimization library. The 
 ## Results
 
 The optimized heating strategy minimizes the total energy cost while maintaining the indoor temperature within the specified range. The notebook includes plots comparing the optimized strategy to a baseline approach, highlighting the cost savings.
-
-    - The insights gained from the optimization model can be scaled and applied to larger systems, such as commercial buildings or smart grids. By leveraging similar optimization techniques, broader applications can achieve significant energy and cost savings.
+- The insights gained from the optimization model can be scaled and applied to larger systems, such as commercial buildings or smart grids. By leveraging similar optimization techniques, broader applications can achieve significant energy and cost savings.
 
 ## Future Work
 
