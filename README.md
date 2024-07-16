@@ -12,12 +12,12 @@ The temperature dynamics inside a house can be modeled using a differential equa
 
 $$ \frac{dT}{dt} = k \cdot (T_{\text{ambient}}(t) - T(t)) + \alpha \cdot P_{\text{heater}}(t) $$
 
-Where:
-- \( T(t) \): Temperature inside the house (°C)
-- \( T_{\text{ambient}}(t) \): Ambient temperature outside the house (°C)
-- \( P_{\text{heater}}(t) \): Power supplied to the heater (kW)
-- \( k \): Cooling coefficient (hours\(^{-1}\))
-- \( \alpha \): Heating coefficient (°C \cdot kWh\(^{-1}\))
+where:
+- $$ T(t) $$: Temperature inside the house (°C)
+- $$ T_{\text{ambient}}(t) $$: Ambient temperature outside the house (°C)
+- $$ P_{\text{heater}}(t) $$: Power supplied to the heater (kW)
+- $$ k $$: Cooling coefficient (hours$$^{-1}$$)
+- $$ \alpha $$: Heating coefficient (°C \cdot kWh$$^{-1}$$)
 
 The ambient temperature and electricity cost evolve as follows:
 
@@ -28,13 +28,13 @@ $$ c(t) = 40 + 25 \sin^2\left(\frac{\pi}{12} t\right) $$
 ### Why This Model?
 
 - **Newton's Law of Cooling**: This law provides a simple yet effective way to model the rate of change of temperature in a system. It assumes that the rate of heat loss of a body is proportional to the difference in temperatures between the body and its surroundings. This is suitable for our scenario where the house loses heat to the environment.
-- **Incorporating Heating Power**: By adding a term for heating power, we can control the temperature inside the house. The coefficient \( \alpha \) relates the power supplied to the heater to the resulting increase in temperature, making the model more realistic and actionable.
+- **Incorporating Heating Power**: By adding a term for heating power, we can control the temperature inside the house. The coefficient $$ \alpha $$ relates the power supplied to the heater to the resulting increase in temperature, making the model more realistic and actionable.
 - **Periodic Ambient Temperature**: The ambient temperature is modeled as a sinusoidal function to reflect daily temperature variations. This periodic function captures the natural fluctuations in outdoor temperature.
 - **Variable Electricity Cost**: Electricity cost is also modeled as a periodic function, which reflects typical daily changes in electricity pricing, such as peak and off-peak rates. This variability adds another layer of realism to the optimization problem.
 
 ## Discretization
 
-To transform the continuous ODE into a discrete-time problem, we use the Euler method. The Euler method approximates the temperature at the next time step by adding the product of the time step size (\( \Delta t \)) and the rate of change of temperature to the current temperature. This gives us the following discrete-time equations:
+To transform the continuous ODE into a discrete-time problem, we use the Euler method. The Euler method approximates the temperature at the next time step by adding the product of the time step size ($$ \Delta t $$) and the rate of change of temperature to the current temperature. This gives us the following discrete-time equations:
 
 $$ T(t + \Delta t) = T(t) + \Delta t \cdot \left( k \cdot (T_{\text{ambient}}(t) - T(t)) + \alpha \cdot P_{\text{heater}}(t) \right) $$
 
@@ -54,12 +54,12 @@ $$
 \end{align*}
 $$
 
-Where:
-- \( n \): Total number of steps (\( \frac{H}{\Delta t} \))
-- \( c[t] \): Electricity cost at time \( t \), converted to \$ per kWh for consistency with \( P_{\text{heater}}[t] \)
-- \( P_{\text{heater}}[t] \): Power supplied to the heater at time \( t \), continuous variable with bounds \([0, P_{\text{max}}]\)
-- \( x[t] \): Binary variable indicating if the heater is on (1) or off (0) at time \( t \)
-- \( T[t] \): Temperature inside the house at time \( t \), continuous variable with bounds \([T_{\text{min}}, T_{\text{max}}]\)
+where:
+- $$ n $$: Total number of steps ($$ \frac{H}{\Delta t} $$)
+- $$ c[t] $$: Electricity cost at time $$ t $$, converted to \$ per kWh for consistency with $$ P_{\text{heater}}[t] $$
+- $$ P_{\text{heater}}[t] $$: Power supplied to the heater at time $$ t $$, continuous variable with bounds $$ [0, P_{\text{max}}] $$
+- $$ x[t] $$: Binary variable indicating if the heater is on (1) or off (0) at time $$ t $$
+- $$ T[t] $$: Temperature inside the house at time $$ t $$, continuous variable with bounds $$ [T_{\text{min}}, T_{\text{max}}] $$
 
 ## Implementation
 
