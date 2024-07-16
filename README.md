@@ -25,7 +25,7 @@ $$ T_{\text{ambient}}(t) = 15 - 10 \sin\left(\frac{\pi}{12} (t + 4)\right) $$
 
 $$ c(t) = 40 + 25 \sin^2\left(\frac{\pi}{12} t\right) $$
 
-### Why This Model?
+### Why This Formulation?
 
 - **Newton's Law of Cooling**: This law provides a simple yet effective way to model the rate of change of temperature in a system. It assumes that the rate of heat loss of a body is proportional to the difference in temperatures between the body and its surroundings. This is suitable for our scenario where the house loses heat to the environment.
 - **Incorporating Heating Power**: By adding a term for heating power, we can control the temperature inside the house. The coefficient $\alpha$ relates the power supplied to the heater to the resulting increase in temperature, making the model more realistic and actionable.
@@ -75,9 +75,6 @@ In addition to developing an optimized heating strategy, it is essential to esta
 
 3. **Identifying Improvement Areas:**
    - By analyzing the baseline strategy, we can identify specific areas where optimization can yield significant benefits. For instance, recognizing periods of high power usage during expensive electricity times highlights the potential for cost savings through better scheduling.
-
-4. **Validation of Optimization Model:**
-   - The baseline strategy acts as a validation tool for the optimization model. It ensures that any claimed improvements are genuine and not a result of erroneous assumptions or model inaccuracies.
 
 ### Description of the Baseline Strategy
 
