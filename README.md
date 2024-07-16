@@ -13,7 +13,7 @@ The temperature dynamics inside a house can be modeled using a differential equa
 $$ \frac{dT}{dt} = k \cdot (T_{\text{ambient}}(t) - T(t)) + \alpha \cdot P_{\text{heater}}(t) $$
 
 where:
-- $$ T(t) $$: Temperature inside the house (°C)
+- $$T(t)$$: Temperature inside the house (°C)
 - $$ T_{\text{ambient}}(t) $$: Ambient temperature outside the house (°C)
 - $$ P_{\text{heater}}(t) $$: Power supplied to the heater (kW)
 - $$ k $$: Cooling coefficient (hours$$^{-1}$$)
