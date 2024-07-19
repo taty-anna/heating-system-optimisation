@@ -2,7 +2,8 @@
 
 ## Overview
 
-This project explores an optimization problem to minimize the energy cost of heating a house. The goal is to maintain the indoor temperature within a specified range while considering variable ambient temperatures and electricity costs.
+This project explores an optimization problem to minimize the energy cost of heating a house. The goal is to maintain the indoor temperature within a specified range while considering variable ambient temperatures and electricity costs. 
+By using predictive control strategies to optimize heating schedules based on electricity price fluctuations, the model demonstrates a 26.7% reduction in heating costs. This enhances energy efficiency, making it valuable for residential applications to reduce energy bills and for commercial buildings to lower operational costs and improve sustainability.
 
 ## Problem Statement
 
